@@ -35,19 +35,18 @@ for person, vote_count in candidate_votes.items():
         winner_votes = vote_count
         winner = person
 
+
+# variable for output file
+output_file = os.path.join("PyPoll_Election_Data.txt")
+
+#Open the output file
 dashbreak = "-------------------------"
 
-#Print out results
-print("Election Results")
-print('----------------------------')
-print(f"Total Votes: {total_votes}")
-print(dashbreak)
-for person, vote_count in candidate_votes.items():
-    print(f"{person}: {candidate_percentages[person]} ({vote_count})")
-print(dashbreak)
-print(f"Winner: {winner}")
-print(dashbreak)
-
-
-with open("PyPoll_Election_Data.txt", 'w') as txt_file:
-   txt_file.write(output)
+with open(output_file, "w", newline="") as text_file:
+   print("Election Results", file=text_file)
+   print(dashbreak, file=text_file)
+   print(f"Total Votes: {total_votes}", file=text_file)
+   print(dashbreak, file=text_file)
+   for person, vote_count in candidate_votes.items():
+        print(f"{person}: {candidate_percentages[person]} ({vote_count})", file=text_file)
+        print(f"Winner: {winner}", file=text_file)

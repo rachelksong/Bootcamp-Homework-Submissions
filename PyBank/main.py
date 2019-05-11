@@ -35,6 +35,7 @@ with open(csvpath, 'r', newline='') as csvfile:
 #The greatest increase in profits (date and amount) over the entire period
 #The greatest increase in profits (date and amount) over the entire period
 #The greatest decrease in losses (date and amount) over the entire period
+
 sum_rev_changes = sum(revenue_changes)
 average_change = sum_rev_changes / (total_month - 1)
 max_change = max(revenue_changes)
@@ -44,17 +45,15 @@ min_month_index = revenue_changes.index(min_change)
 max_month = months[max_month_index]
 min_month = months[min_month_index]
 
-#print financial analysis
-print(f'Financial Analysis')
-print('----------------------------')
-print(f'Total Months: {total_month}')
-print(f'Total: ${total_revenue}')
-print(f'Average Change: ${average_change:.2f}')
-print(f"Greatest Increase in Profits: {max_month} (${max_change})")
-print(f"Greatest Decrease in Profits: {min_month} (${min_change})")
-
 # variable for output file
 output_file = os.path.join("PyBank_budget_data.txt")
+
 #Open the output file
 with open(output_file, "w", newline="") as text_file:
-   print("Financial Analysis", file=text_file)
+    print("Financial Analysis", file=text_file)
+    print('----------------------------', file=text_file)
+    print(f'Total Months: {total_month}', file=text_file)
+    print(f'Total: ${total_revenue}', file=text_file)
+    print(f'Average Change: ${average_change:.2f}', file=text_file)
+    print(f"Greatest Increase in Profits: {max_month} (${max_change})", file=text_file)
+    print(f"Greatest Decrease in Profits: {min_month} (${min_change})", file=text_file)
