@@ -52,3 +52,9 @@ print(f'Total: ${total_revenue}')
 print(f'Average Change: ${average_change:.2f}')
 print(f"Greatest Increase in Profits: {max_month} (${max_change})")
 print(f"Greatest Decrease in Profits: {min_month} (${min_change})")
+
+# variable for output file
+output_file = os.path.join("PyBank_budget_data.txt")
+#Open the output file
+with open(output_file, "w", newline="") as text_file:
+   print("Financial Analysis", file=text_file)
