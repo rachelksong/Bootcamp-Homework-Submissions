@@ -24,10 +24,10 @@ var chartGroup = svg.append("g")
 d3.select("body").append("div").attr("class", "tooltip").style("opacity", 0);
 
 // Import Data
-d3.csv("data.csv", function(err, healthData) {
-  if (err) throw err;
-console.log(healthData)
-
+d3.csv("./data.csv").then(function(healthData) {
+  // if (err) throw err;
+  console.log('This is csv data');
+  console.log(healthData);
   // Step 1: Parse Data/Cast as numbers
    // ==============================
   healthData.forEach(function(data) {
